@@ -47,10 +47,13 @@ submitElement.addEventListener('click', function(){
         console.log("Final Fare:", finalFare, "€");
 
         const ticket = document.getElementById("ticket");
-        ticket.innerHTML += `
-        <h4>Ticket Fare: € ${ticketFare} </h4>
-        <h4>Your Discount: ${discountPercentage} </h4>
-        <h3>Final Fare is € ${finalFare} </h3>
+        ticket.innerHTML = `
+        <div class="ticket-info p-3">
+            <h4>Name & Surname: ${passengerName} </h4>
+            <h6>Ticket Fare: € ${ticketFare} </h6>
+            <h6>Discount: ${discountPercentage} </h6>
+            <h4>Final Fare is € ${finalFare} </h4>
+        </div>
         `;
         }
 

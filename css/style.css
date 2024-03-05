@@ -1,11 +1,43 @@
+:root{
+    --teal: teal;
+    --white: #ffffff;
+}
+
+/* RESET */
+
+img{
+    max-width: 100%;
+}
+
+body{
+    background-color: var(--teal);
+}
+
+/* Utilities */
+
+.bg__white{
+    background-color: var(--white);
+}
+
+
 .error{
     color: red;
 }
 
-.d-none{
-    display: none;
-}
-
 .d-inline-block{
     display: inline-block;
+}
+
+/* Section .ticket */
+
+@media screen and (min-width: 768px){
+
+    .card-body-img{
+        width: 50%;
+    }
+
+    .ticket-info{
+        width: 50%;
+    }
+
 }
