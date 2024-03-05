@@ -12,7 +12,12 @@ submitElement.addEventListener('click', function(){
     const passengerAge = document.getElementById("age").value;
     console.log(passengerAge);
 
-    if (km > 0 && 
+    // Nome e Cognome del passeggero
+    const passengerName = document.getElementById("name").value;
+    console.log(passengerName);
+
+    if (passengerName.length > 0 &&
+        km > 0 && 
         !isNaN(km))
         {
         // calcolare il prezzo totale del viaggio, secondo queste regole:
