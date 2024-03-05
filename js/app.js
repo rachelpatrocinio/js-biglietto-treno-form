@@ -54,12 +54,14 @@ submitGenerate.addEventListener('click', function(){
         console.log("Final Fare:", finalFare, "€");
 
         //STAMPIAMO IN PAGINA IL TICKET CON I DATI 
+        const bookingQR = Math.floor(Math.random()* 1000000);
         const ticket = document.getElementById("ticket");
         ticket.innerHTML = `
         <h6 id="printed-name">Name & Surname: ${passengerName}</h6>
         <h6 id="ticket-fare">Ticket Fare: € ${ticketFare}</h6>
         <h6 id="printed-offer">Discount: ${discountPercentage} </h6>
-        <h6 id="printed-fare">Costo Biglietto: € ${finalFare}</h6>
+        <h6 id="printed-fare">Final Fare: € ${finalFare}</h6>
+        <h6 id="printed-code">Booking Reference: ${bookingQR}</h6>
         `;
 
         const ticketQRCode = document.querySelector(".card-body");
