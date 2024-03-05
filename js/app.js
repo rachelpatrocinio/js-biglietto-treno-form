@@ -9,39 +9,46 @@ submitElement.addEventListener('click', function(){
     console.log(km);
 
     // Età del passeggero
-    const passengerAge = parseInt(document.getElementById("age").value);
+    const passengerAge = document.getElementById("age").value;
     console.log(passengerAge);
 
     if (km > 0 && 
-        passengerAge > 0 &&
-        !isNaN(km) &&
-        !isNaN(passengerAge)){
+        !isNaN(km))
+        {
         // calcolare il prezzo totale del viaggio, secondo queste regole:
         // il prezzo del biglietto è definito in base ai km (0.21 € al km)
-        const ticketPrice = km * 0.21; //num
-        console.log("Full Price:",ticketPrice.toFixed(2), "€");
+        const ticketFare = (km * 0.21).toFixed(2); //num
+        console.log("Ticket Fare:",ticketFare, "€");
     
         //L’output del prezzo finale va stampato in console in forma “umana” cioè con al massimo due decimali, per indicare centesimi sul prezzo.
         // IF utente è minorenne, il prezzo sarà scontato del 20%
         // ELSE IF utente è over 65, il prezzo sarà scontato del 40%
         // ELSE prezzo normale
         let discount = 0;
-        if (passengerAge < 18){
+        let discountPercentage = 0;
+        if (passengerAge === "minor"){
             //console.log(userAge, "You are a Minor");
-            discount = ticketPrice * 0.2;
-        } else if(passengerAge >= 65){
+            discountPercentage = "20%";
+            discount = (ticketFare * 0.2).toFixed(2);
+            console.log(discount);
+        } else if(passengerAge === "senior"){
             //console.log(userAge,"You are a Senior Citizen.");
-            discount = ticketPrice * 0.4;
+            discountPercentage = "40%";
+            discount = (ticketFare * 0.4).toFixed(2);
+            console.log(discount);
         }
     
-        const finalPrice = (ticketPrice - discount).toFixed(2);
-        console.log("Final Price:", finalPrice, "€");
+        const finalFare = (ticketFare - discount).toFixed(2);
+        console.log("Final Fare:", finalFare, "€");
 
         const ticket = document.getElementById("ticket");
         ticket.innerHTML += `
-        <span> ${finalPrice} </span>
+        <h4>Ticket Fare: € ${ticketFare} </h4>
+        <h4>Your Discount: ${discountPercentage} </h4>
+        <h3>Final Fare is € ${finalFare} </h3>
         `;
         }
+
     else{
         const error = document.querySelector(".error");
         console.log(error);

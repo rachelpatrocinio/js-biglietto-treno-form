@@ -14,14 +14,18 @@
             <input id="km" type="text">
             <span class="error d-none">Please fill the quest.</span>
         </div>
+        <select name="age" id="age">
+            <option value="normal"> +18</option>
+            <option value="minor"> -18</option>
+            <option value="senior"> +65 </option>
+        </select>
         <div>
-            <label for="age">Age</label>
-            <input id="age" type="text">
+            <input type="submit" value="Calculate Ticket Fare" id="submit">
         </div>
 
-        <input type="submit" value="Calculate Ticket Fare" id="submit">
-
-        <h3 id="ticket">Your ticket fare is €</h3>
+        <div id="ticket">
+            <h1> Your Ticket</h1>
+        </div>
     </section>
     
 
