@@ -20,7 +20,8 @@ body{
 }
 
 
-.error{
+.error,
+.error-name{
     color: red;
 }
 

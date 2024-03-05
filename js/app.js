@@ -69,6 +69,11 @@ submitGenerate.addEventListener('click', function(){
         console.log(error);
         error.classList.remove("d-none");
         error.classList.add("d-inline-block");
+
+        const errorName = document.querySelector(".error-name");
+        console.log(errorName);
+        errorName.classList.remove("d-none");
+        errorName.classList.add("d-inline-block");
     }
 })
 
