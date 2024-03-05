@@ -53,27 +53,34 @@ submitGenerate.addEventListener('click', function(){
         const finalFare = (ticketFare - discount).toFixed(2);
         console.log("Final Fare:", finalFare, "€");
 
-        const ticket = document.getElementById("ticket");
+        //STAMPIAMO IN PAGINA IL TICKET CON I DATI 
+        const ticket= document.getElementById("ticket");
         ticket.innerHTML = `
-        <div class="ticket-info p-3">
-            <h4>Name & Surname: ${passengerName} </h4>
-            <h6>Ticket Fare: € ${ticketFare} </h6>
-            <h6>Discount: ${discountPercentage} </h6>
-            <h4>Final Fare is € ${finalFare} </h4>
-        </div>
+        <h6 id="printed-name">Name & Surname: ${passengerName}</h6>
+        <h6 id="ticket-fare">Ticket Fare: € ${ticketFare}</h6>
+        <h6 id="printed-offer">Discount: ${discountPercentage} </h6>
+        <h6 id="printed-fare">Costo Biglietto: € ${finalFare}</h6>
         `;
         }
 
     else{
-        const error = document.querySelector(".error");
-        console.log(error);
-        error.classList.remove("d-none");
-        error.classList.add("d-inline-block");
-
         const errorName = document.querySelector(".error-name");
-        console.log(errorName);
         errorName.classList.remove("d-none");
         errorName.classList.add("d-inline-block");
+        if (passengerName.length > 0){
+            errorName.classList.remove("d-inline-block");
+            errorName.classList.add("d-none");
+        }
+
+        const errorKm = document.querySelector(".error-km");
+        errorKm.classList.remove("d-none");
+        errorKm.classList.add("d-inline-block");
+        if  (
+            km > 0 && 
+            !isNaN(km)){
+            errorKm.classList.remove("d-inline-block");
+            errorKm.classList.add("d-none");
+        }
     }
 })
 

@@ -20,13 +20,9 @@ body{
 }
 
 
-.error,
-.error-name{
+.error-name,
+.error-km{
     color: red;
-}
-
-.d-inline-block{
-    display: inline-block;
 }
 
 /* Section .ticket */
