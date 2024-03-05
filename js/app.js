@@ -1,7 +1,14 @@
-// Dichiare una variabile per il bottone sumbit
-const submitElement = document.getElementById("submit");
+// Dichiarare una variabile per il bottone submit Refresh
+const submitRefresh = document.getElementById("refresh");
 
-submitElement.addEventListener('click', function(){
+submitRefresh.addEventListener('click', function(){
+    location.reload();
+})
+
+// Dichiare una variabile per il bottone sumbit Generate
+const submitGenerate = document.getElementById("generate");
+
+submitGenerate.addEventListener('click', function(){
     //console.log("Clicked");
     // Scrivere un programma che chieda all’utente:
     // Il numero di chilometri da percorrere
