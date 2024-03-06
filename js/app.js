@@ -60,9 +60,13 @@ submitGenerate.addEventListener('click', function(){
         console.log("Final Fare:", finalFare, "€");
 
         //STAMPIAMO IN PAGINA IL TICKET CON I DATI 
+        const ticket = document.querySelector(".ticket");
+        console.log(ticket);
+        ticket.classList.remove("d-none");
+        ticket.classList.add("d-block");
         const bookingCode= Math.floor(Math.random()* 1000000);
-        const ticket = document.getElementById("ticket");
-        ticket.innerHTML = `
+        const ticketInfo = document.getElementById("ticket-info");
+        ticketInfo.innerHTML = `
         <div class="w-75">
             <h6 id="printed-name">Name & Surname: ${passengerName}</h6>
             <h6 id="ticket-fare">Ticket Fare: € ${ticketFare}</h6>
