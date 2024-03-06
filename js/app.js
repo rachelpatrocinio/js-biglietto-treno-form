@@ -1,6 +1,7 @@
 // Dichiarare una variabile per il bottone submit Refresh
 const submitRefresh = document.getElementById("refresh");
 
+// Ascoltiamo il click del bottone Refresh e Rifreshamo la pagina
 submitRefresh.addEventListener('click', function(){
     location.reload();
 })
@@ -8,6 +9,7 @@ submitRefresh.addEventListener('click', function(){
 // Dichiare una variabile per il bottone sumbit Generate
 const submitGenerate = document.getElementById("generate");
 
+// Ascoltiamo il click del bottone Generate 
 submitGenerate.addEventListener('click', function(){
     //console.log("Clicked");
     // Scrivere un programma che chieda all’utente:
@@ -23,6 +25,9 @@ submitGenerate.addEventListener('click', function(){
     const passengerName = document.getElementById("name").value;
     console.log(passengerName);
 
+    // SE IL passengerName lunghezza > 0 
+    // km > 0
+    // km è diverso NaN
     if (passengerName.length > 0 &&
         km > 0 && 
         !isNaN(km))
@@ -49,29 +54,28 @@ submitGenerate.addEventListener('click', function(){
             discount = (ticketFare * 0.4).toFixed(2);
             console.log(discount);
         }
-    
+        
+        //CALCOLIAMO IL PREZZO FINALE
         const finalFare = (ticketFare - discount).toFixed(2);
         console.log("Final Fare:", finalFare, "€");
 
         //STAMPIAMO IN PAGINA IL TICKET CON I DATI 
-        const bookingQR = Math.floor(Math.random()* 1000000);
+        const bookingCode= Math.floor(Math.random()* 1000000);
         const ticket = document.getElementById("ticket");
         ticket.innerHTML = `
-        <h6 id="printed-name">Name & Surname: ${passengerName}</h6>
-        <h6 id="ticket-fare">Ticket Fare: € ${ticketFare}</h6>
-        <h6 id="printed-offer">Discount: ${discountPercentage} </h6>
-        <h6 id="printed-fare">Final Fare: € ${finalFare}</h6>
-        <h6 id="printed-code">Booking Reference: ${bookingQR}</h6>
-        `;
-
-        const ticketQRCode = document.querySelector(".card-body");
-        ticketQRCode.innerHTML += `
+        <div class="w-75">
+            <h6 id="printed-name">Name & Surname: ${passengerName}</h6>
+            <h6 id="ticket-fare">Ticket Fare: € ${ticketFare}</h6>
+            <h6 id="printed-offer">Discount: ${discountPercentage} </h6>
+            <h6 id="printed-fare">Final Fare: € ${finalFare}</h6>
+            <h6 id="printed-code">Booking Reference: ${bookingCode}</h6>
+        </div>
         <img src="./img/qrcode.svg" class="w-25">`;
-
-        
         }
-
+    
+    //ALTIMENTI
     else{
+        // STAMPIAMO ERRORE
         const errorName = document.querySelector(".error-name");
         errorName.classList.remove("d-none");
         errorName.classList.add("d-inline-block");
